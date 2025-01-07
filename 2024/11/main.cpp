@@ -4,14 +4,15 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <vector>
 
 namespace utility
 {
-int64_t count_digits(int64_t v)
+template <typename T, typename std::enable_if<std::is_arithmetic<T>::value>::type* = nullptr> T count_digits(T v)
 {
-  int64_t count = 0;
+  T count = 0;
 
   while (v != 0) {
     v /= 10;
