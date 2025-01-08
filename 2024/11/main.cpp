@@ -10,7 +10,7 @@
 
 namespace utility
 {
-template <typename T, typename std::enable_if<std::is_arithmetic<T>::value>::type* = nullptr> T count_digits(T v)
+template <typename T> std::enable_if_t<std::is_arithmetic_v<T>, T> count_digits(T v)
 {
   T count = 0;
 
